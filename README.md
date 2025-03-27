@@ -1,8 +1,8 @@
 # intellistar-emulator
-A web application that displays weather information in the same visual presentation as the cable headend unit [Intellistar](https://en.wikipedia.org/wiki/IntelliStar).
+A web application that displays weather information in the same visual presentation as the cable headend unit [Intellistar](https://en.wikipedia.org/wiki/IntelliStar). Thanks goes out to Quinn Conrad for his work on this emulator, along with those that contributed to that product. You can find Quinn here: https://github.com/qconrad/intellistar-emulator
 
 ## Overview
-This is a local forecast segment that airs on The Weather Channel called the "Local on the 8s". The name is because it airs at timeslots that end in "8" (9:28, 2:48, etc.). The forecast is approximately a minute long and provides information on current and forecasted weather conditions. This type of forecast started in 1982 using WeatherStar units. It was later upgraded to Intellistar in 2003 and received various graphic changes over the years. This emulator uses the style that started in 2013.
+"Local on the 8s" is a local forecast segment that airs on The Weather Channel (TWC). It derived its name back in the 1980s as it aired at timeslots that end in "8" (9:28, 2:48, etc.) and continues today. Modifications to the emulator from qconrad has put the timeframe at just over 1 minute 15 seconds, and it provides information on current/forecasted weather conditions. Intellistar (born in 2003) comes from a long list of units proprietary to TWC, starting out with the WeatherStar units in the 1980's. It has received various graphic changes over the years, and this particular emulator uses the style that started in 2013.
 
 ## Instructions
 ## Option 1 (easier)
@@ -28,12 +28,16 @@ This is a local forecast segment that airs on The Weather Channel called the "Lo
 ## Features
 Most of core animation and logic has been replicated including severe weather alerts, forecast descriptions, crawl text, and the Doppler radar map.
 
-*Some of these features are temporarily not working due to the discontinuation of WU's API*
+*Some of these features may periodically stop working due to weather API changes. Modifications will be made as needed.*
 
 ## Looping
 To enable or disable looping, click on the TWC logo in the info-bar in the top-left corner of the emulator.
 
-To get looping working properly, you may (as of Chrome M66) have to go to chrome://flags#autoplay-policy (Autoplay Policy) and change it to `User gesture is required for cross-origin iframes` or `No user gesture is required`  
+To get looping working properly in Google Chrome, specifically, you will need to add the following tag to your browser properties:
+1. Right click on the Google Chrome Browser icon and selection "Properties"
+2. Select the "Shortcut" tab
+3. In the "Target" text box, add " --autoplay-policy=no-user-gesture-required" without quotes
+4. Click "Apply", then "OK"
 
 ## Screenshots
 ![Screenshot 1](/screenshots/1.png)
