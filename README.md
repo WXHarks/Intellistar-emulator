@@ -33,7 +33,7 @@ Most of core animation and logic has been replicated including severe weather al
 ## Looping
 To enable or disable looping, click on the TWC logo in the info-bar in the top-left corner of the emulator.
 
-To get looping working properly in Google Chrome specifically, you will need to add the following tag to your browser properties:
+To get looping working properly in Google Chrome, you will need to add the following tag to your browser properties:
 1. Right click on the Google Chrome Browser icon and selection "Properties"
 2. Select the "Shortcut" tab
 3. In the "Target" text box, add " --autoplay-policy=no-user-gesture-required" without quotes
