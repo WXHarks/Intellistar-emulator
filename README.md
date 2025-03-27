@@ -6,7 +6,7 @@ This is a local forecast segment that airs on The Weather Channel called the "Lo
 
 ## Instructions
 ## Option 1 (easier)
-1. Visit: <https://qconrad.github.io/intellistar-emulator/>.
+1. Visit: <https://wxharks.github.io/intellistar-emulator/>.
 2. Enter zip code
 3. Click start
 4. Press F11 for fullscreen
@@ -19,7 +19,7 @@ This is a local forecast segment that airs on The Weather Channel called the "Lo
 5. Press F11 for fullscreen
 
 ## Option 3 (Docker)
-1. `docker run -p 8080:80 ghcr.io/qconrad/intellistar-emulator`
+1. `docker run -p 8080:80 ghcr.io/wxharks/intellistar-emulator`
 2. Visit: http://localhost:8080
 3. Enter zip code
 4. Click start
