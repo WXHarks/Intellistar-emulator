@@ -2,7 +2,7 @@
 A web application that displays weather information in the same visual presentation as the cable headend unit [Intellistar](https://en.wikipedia.org/wiki/IntelliStar). Thanks goes out to Quinn Conrad for his work on this emulator, along with those that contributed to that product. You can find Quinn here: https://github.com/qconrad/intellistar-emulator
 
 ## Overview
-"Local on the 8s" is a local forecast segment that airs on The Weather Channel (TWC). It derived its name back in the 1980s as it aired at timeslots that end in "8" (9:28, 2:48, etc.) and continues today. Modifications to the emulator from qconrad has put the timeframe at just over 1 minute 15 seconds, and it provides information on current/forecasted weather conditions. Intellistar (born in 2003) comes from a long list of units proprietary to TWC, starting out with the WeatherStar units in the 1980's. It has received various graphic changes over the years, and this particular emulator uses the style that started in 2013.
+"Local on the 8s" is a local forecast segment that airs on The Weather Channel (TWC). It derived its name back in the 1980s as it aired at timeslots that end in "8" (9:28, 2:48, etc.) and continues today. Modifications to the emulator from qconrad (https://github.com/qconrad/intellistar-emulator) has put the timeframe at just over 1 minute 15 seconds, and it provides information on current/forecasted weather conditions. Intellistar (born in 2003) comes from a long list of units proprietary to TWC, starting out with the WeatherStar units in the 1980's. It has received various graphic changes over the years, and this particular emulator uses the style that started in 2013.
 
 ## Instructions
 ## Option 1 (easier)
