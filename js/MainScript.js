@@ -53,7 +53,7 @@ function toggleAdvancedSettings(){
 }
 
 function preLoadMusic(){
-  var index = Math.floor(Math.random() * 12) + 1;
+  var index = Math.floor(Math.random() * 13) + 1;
   music = new Audio("assets/music/" + index + ".wav");
 }
 
