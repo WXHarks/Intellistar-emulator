@@ -121,10 +121,15 @@ function fetchForecast(){
 function fetchCurrentWeather(){
   try {
     let geoUrl = "";
+    
+    // Create clean variables with automatic fallbacks so the code never throws syntax errors
+    let activeZip = (typeof zipCode !== 'undefined' && zipCode) ? zipCode : '10001';
+    let activeAirport = (typeof airportCode !== 'undefined' && airportCode) ? airportCode : 'KJFK';
+
     if (CONFIG.locationMode == "POSTAL") {
-      geoUrl = `https://open-meteo.com{zipCode || '10001'}&count=1&language=en&format=json`;
+      geoUrl = "https://open-meteo.com" + activeZip + "&count=1&language=en&format=json";
     } else if (CONFIG.locationMode == "AIRPORT") {
-      geoUrl = `https://open-meteo.com{airportCode || 'KJFK'}&count=1&language=en&format=json`;
+      geoUrl = "https://open-meteo.com" + activeAirport + "&count=1&language=en&format=json";
     } else {
       alert("Please select a location type");
       return;
@@ -138,14 +143,14 @@ function fetchCurrentWeather(){
           return;
         }
 
-        let locationResult = geoData.results[0];
+        let locationResult = geoData.results[0]; // Extract the first entry match array element
         cityName = locationResult.name.toUpperCase();
         latitude = locationResult.latitude;
         longitude = locationResult.longitude;
 
         const tempUnit = CONFIG.units === 'm' ? 'celsius' : 'fahrenheit';
         const windUnit = CONFIG.units === 'm' ? 'kmh' : 'mph';
-        const weatherUrl = `https://open-meteo.com{latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility&temperature_unit=${tempUnit}&wind_speed_unit=${windUnit}`;
+        const weatherUrl = "https://open-meteo.com" + latitude + "&longitude=" + longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility&temperature_unit=" + tempUnit + "&wind_speed_unit=" + windUnit;
 
         return fetch(weatherUrl);
       })
@@ -160,7 +165,7 @@ function fetchCurrentWeather(){
         let windDirIndex = Math.round(current.wind_direction_10m / 22.5) % 16;
         let cardinalDirection = directions[windDirIndex];
 
-        windSpeed = `${cardinalDirection} ${Math.round(current.wind_speed_10m)} ${CONFIG.units === 'm' ? 'km/h' : 'mph'}`;
+        windSpeed = cardinalDirection + " " + Math.round(current.wind_speed_10m) + " " + (CONFIG.units === 'm' ? 'km/h' : 'mph');
         gusts = 'NONE'; 
         feelsLike = Math.round(current.apparent_temperature);
         visibility = Math.round(current.visibility / 1609.34) || 10;
@@ -177,18 +182,5 @@ function fetchCurrentWeather(){
       });
   } catch(e) {
       console.error(e);
-  }
-}
-
-function fetchRadarImages() {
-  try {
-    window.radarImage = document.createElement('img');
-    if (typeof finishWeatherLoading === "function") {
-        finishWeatherLoading();
-    } else if (typeof display === "function") {
-        display();
-    }
-  } catch(e) {
-     console.error(e);
   }
 }
