@@ -56,7 +56,7 @@ function fetchAlerts(){
 
 function fetchForecast(){
   const tempUnit = CONFIG.units === 'm' ? 'celsius' : 'fahrenheit';
-  const forecastUrl = "https://open-meteo.com" + latitude + "&longitude=" + longitude + "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=" + tempUnit + "&timezone=auto";
+  const forecastUrl = "https://open-meteo.com/" + latitude + "&longitude=" + longitude + "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=" + tempUnit + "&timezone=auto";
 
   fetch(forecastUrl)
     .then(response => response.json())
@@ -88,9 +88,9 @@ function fetchCurrentWeather(){
     let activeAirport = (typeof airportCode !== 'undefined' && airportCode) ? airportCode : 'KJFK';
 
     if (CONFIG.locationMode == "POSTAL") {
-      geoUrl = "https://open-meteo.com" + activeZip + "&count=1&language=en&format=json";
+      geoUrl = "https://open-meteo.com/" + activeZip + "&count=1&language=en&format=json";
     } else if (CONFIG.locationMode == "AIRPORT") {
-      geoUrl = "https://open-meteo.com" + activeAirport + "&count=1&language=en&format=json";
+      geoUrl = "https://open-meteo.com/" + activeAirport + "&count=1&language=en&format=json";
     } else {
       alert("Please select a location type");
       return;
@@ -110,7 +110,7 @@ function fetchCurrentWeather(){
 
         const tempUnit = CONFIG.units === 'm' ? 'celsius' : 'fahrenheit';
         const windUnit = CONFIG.units === 'm' ? 'kmh' : 'mph';
-        const weatherUrl = "https://open-meteo.com" + latitude + "&longitude=" + longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility&temperature_unit=" + tempUnit + "&wind_speed_unit=" + windUnit;
+        const weatherUrl = "https://open-meteo.com/" + latitude + "&longitude=" + longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility&temperature_unit=" + tempUnit + "&wind_speed_unit=" + windUnit;
 
         return fetch(weatherUrl);
       })
