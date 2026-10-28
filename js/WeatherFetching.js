@@ -44,25 +44,22 @@ function fetchAlerts(){
         if (response.status !== 200) {
             console.warn("Alerts Error, no alerts will be shown");
         }
-      response.json().then(function(data) {
-        if (data.features == undefined || data.features.length === 0){
+      return response.json();
+    })
+    .then(function(data) {
+        if (!data || data.features == undefined || data.features.length === 0){
           fetchForecast();
           return;
         }
         if (data.features.length == 1) {
           alerts[0] = data.features[0].properties.event + '<br>' + data.features[0].properties.description.replace("..."," ").replace(/\*/g, "")
           for(var i = 0; i < data.features.length; i++){
-            /* Take the most important alert message and set it as crawl text
-            This will supply more information i.e. tornado warning coverage */
             alertCrawl = alertCrawl + " " + data.features[i].properties.description.replace("...", " ");
           }
         }
         else {
           for(var i = 0; i < data.features.length; i++){
-            /* Take the most important alert message and set it as crawl text
-            This will supply more information i.e. tornado warning coverage */
             alertCrawl = alertCrawl + " " + data.features[i].properties.description.replace("...", " ");
-
             alerts[i] = data.features[i].properties.event
           }
         }
@@ -71,8 +68,10 @@ function fetchAlerts(){
         }
         alertsActive = alerts.length > 0;
         fetchForecast();
-      });
     })
+    .catch(() => {
+        fetchForecast();
+    });
 }
 
 function fetchForecast(){
@@ -181,4 +180,15 @@ function fetchCurrentWeather(){
     .catch(err => {
       console.error("Error processing Open-Meteo pipeline: ", err);
     });
+}
+
+// RESTORED RADAR MAP SYSTEM STUB
+function fetchRadarImages() {
+  radarImage = document.createElement('img');
+  // Triggers the background graphics compilation layers inside main animation loop
+  if (typeof finishWeatherLoading === "function") {
+      finishWeatherLoading();
+  } else if (typeof display === "function") {
+      display();
+  }
 }
