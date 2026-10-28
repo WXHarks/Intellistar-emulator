@@ -10,8 +10,7 @@ window.CONFIG = {
   secrets: {
     // Possibly deprecated key: See issue #29
     // twcAPIKey: 'd522aa97197fd864d36b418f39ebb323'
-    // twcAPIKey: 'e1f10a1e78da46f5b10a1e78da96f525'
-    twcAPIKey: '088517675798c6bc9ec4b8722fd7d383'
+    twcAPIKey: 'e1f10a1e78da46f5b10a1e78da96f525'
   },
 
   // Config Functions (index.html settings manager)
