@@ -88,9 +88,9 @@ function fetchCurrentWeather(){
     let activeAirport = (typeof airportCode !== 'undefined' && airportCode) ? airportCode : 'KJFK';
 
     if (CONFIG.locationMode == "POSTAL") {
-      geoUrl = "https://open-meteo.com/" + activeZip + "&count=1&language=en&format=json";
+      geoUrl = "https://open-meteo.com" + activeZip + "&count=1&language=en&format=json";
     } else if (CONFIG.locationMode == "AIRPORT") {
-      geoUrl = "https://open-meteo.com/" + activeAirport + "&count=1&language=en&format=json";
+      geoUrl = "https://open-meteo.com" + activeAirport + "&count=1&language=en&format=json";
     } else {
       alert("Please select a location type");
       return;
