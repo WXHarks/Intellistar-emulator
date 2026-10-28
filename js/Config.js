@@ -8,7 +8,8 @@ window.CONFIG = {
   loop: false,
   locationMode: "POSTAL",
   secrets: {
-    twcAPIKey: 'e1f10a1e78da46f5b10a1e78da96f525'
+    // twcAPIKey: 'e1f10a1e78da46f5b10a1e78da96f525'
+    twcAPIKey: 'd522aa97197c430ba2aa97197c130b9f'
   },
 
   // Config Functions (index.html settings manager)
