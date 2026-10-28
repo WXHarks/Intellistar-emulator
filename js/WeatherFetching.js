@@ -108,9 +108,11 @@ function fetchCurrentWeather(){
         latitude = locationResult.latitude;
         longitude = locationResult.longitude;
 
-        const tempUnit = CONFIG.units === 'm' ? 'celsius' : 'fahrenheit';
-        const windUnit = CONFIG.units === 'm' ? 'kmh' : 'mph';
-        const weatherUrl = "https://open-meteo.com/" + latitude + "&longitude=" + longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility&temperature_unit=" + tempUnit + "&wind_speed_unit=" + windUnit;
+       var baseApi = "https://open-meteo.com" + latitude;
+        var queryParams = "&longitude=" + longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,visibility";
+        var unitSettings = "&temperature_unit=" + tempUnit + "&wind_speed_unit=" + windUnit;
+
+        const weatherUrl = baseApi + queryParams + unitSettings;
 
         return fetch(weatherUrl);
       })
