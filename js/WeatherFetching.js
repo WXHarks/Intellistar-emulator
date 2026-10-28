@@ -122,7 +122,7 @@ function fetchCurrentWeather(){
   try {
     let geoUrl = "";
     
-    // Create clean variables with automatic fallbacks so the code never throws syntax errors
+    // Fallback safeguards
     let activeZip = (typeof zipCode !== 'undefined' && zipCode) ? zipCode : '10001';
     let activeAirport = (typeof airportCode !== 'undefined' && airportCode) ? airportCode : 'KJFK';
 
@@ -135,7 +135,10 @@ function fetchCurrentWeather(){
       return;
     }
 
+    // Ensure the network stream uses the correct endpoint string
     fetch(geoUrl)
+// ... keep the rest of the function down below exactly as it is ...
+
       .then(response => response.json())
       .then(geoData => {
         if (!geoData.results || geoData.results.length === 0) {
