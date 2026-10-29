@@ -13,7 +13,7 @@ const crawlScreenTime = 45; // Shortest time crawl will be on screen, in seconds
 const crawlSpace = 70; // Approx number of characters that can fix in the crawl bar. Used for crawl speed calcs
 
 // Music fade length (ms). Full-length tracks can be used; volume fades on the last slide.
-const MUSIC_FADE_MS = 2500;
+const MUSIC_FADE_MS = 1000;
 
 var isDay = true;
 var currentLogo;
