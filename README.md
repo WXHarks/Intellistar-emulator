@@ -26,6 +26,9 @@ A web application that displays weather information in the same visual presentat
 5. Press F11 for fullscreen
 
 ## Features
+***UPDATE 10/29/2026***
+Due to depreciated API from The Weather Company/Wunderground, files have been converted to reflect The National Weather Service (NWS) API. More details about NWS API can be found at https://www.weather.gov/documentation/services-web-api.
+
 Most of core animation and logic has been replicated including severe weather alerts, forecast descriptions, crawl text, and the Doppler radar map.
 
 *Some of these features may periodically stop working due to weather API changes. Modifications will be made as needed.*
